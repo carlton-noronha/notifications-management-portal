@@ -30,6 +30,11 @@
 			<version>3.1.2.RELEASE</version>
 		</dependency>
 		<dependency>
+			<groupId>com.byethost12.carltonnoronha</groupId>
+			<artifactId>notifications-management-portal-models</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
