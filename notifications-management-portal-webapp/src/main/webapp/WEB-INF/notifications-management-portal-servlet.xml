@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+						">
+
+	<!-- Configuring Thymeleaf. Once project is build by Maven resources in 
+		src/main/resources will end up in target/classes and in WEB-INF/classes in 
+		the WAR. Read more:
+	https://maven.apache.org/plugins/maven-war-plugin/examples/adding-filtering-webresources.html -->
+
+	<bean id="templateResolver"
+		class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
+		<property name="prefix" value="/WEB-INF/classes/templates/" />
+		<property name="suffix" value=".html" />
+	</bean>
+
+	<bean id="templateEngine"
+		class="org.thymeleaf.spring6.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine" />
+	</bean>
+
+	<mvc:annotation-driven />
+	<!-- Configuring static resources. Maps requests with URL pattern specified 
+		by mapping attribute to the location specified by the location attribute -->
+	<mvc:resources mapping="/resources/css/**"
+		location="/WEB-INF/classes/css/" />
+	<mvc:resources mapping="/resources/js/**"
+		location="/WEB-INF/classes/js/" />
+
+	<context:component-scan
+		base-package="com.byethost12.carltonnoronha" />
+</beans>
