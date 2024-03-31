@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-html,
-body {
+html, body {
 	height: 100%;
-}
-
-.notificationManagementPortal-layoutContainer {
-	display: grid;
-	height: 100%;
-	grid-template-rows: 7% 88% 5%;
 }

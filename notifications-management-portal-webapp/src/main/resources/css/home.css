@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.notificationsManagementPortal-layout {
+	padding: 0;
+}
+
+.filter-form {
+	display: flex;
+}
+
+.filter-form>form {
+	background-color: #CECECE;
+	padding: 0.75rem;
+}
