@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.thymeleaf.org">
-
 <head>
-	<meta charset="UTF-8">
-	<title>Notifications Management Portal</title>
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}" />
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/styles.css}" />
+<meta charset="UTF-8">
+<title>Notifications Management Portal</title>
+<link type="text/css" rel="stylesheet"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet"
+	th:href="@{/resources/css/styles.css}" />
+<link type="text/css" rel="stylesheet"
+	th:href="@{/resources/css/home.css}" />
 </head>
-
 <body>
-	<div class="notificationManagementPortal-layoutContainer">
-		<header th:replace="common/header.html :: header"></header>
-		<main>
-			
-		</main>
-		<footer th:replace="common/footer.html :: footer"></footer>
+	<div class="container-fluid notificationsManagementPortal-layout">
+		<div class="row ">
+			<div class="col-xs-12">
+				<header th:replace="common/header.html :: header"></header>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<main>
+					<section class="filter-form">
+						<form th:method="GET" action="" th:object="${filterNotification}">
+							<label for="notificationCategoryId" class="form-label">Category:</label>
+							<select th:field="*{notificationCategoryId}" class="form-select">
+								<option value="1">Need to fetch from DB</option>
+							</select> <label for="startDate" class="form-label">Start date:</label> <input
+								th:field="*{startDate}" type="date"
+								class="form-control form-control-sm" /> <label th:for="endDate"
+								class="form-label">End date:</label> <input
+								th:field="*{endDate}" type="date"
+								class="form-control form-control-sm" />
+							<button class="btn btn-danger" type="submit">Submit</button>
+						</form>
+					</section>
+					<section></section>
+				</main>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<footer th:replace="common/footer.html :: footer"></footer>
+			</div>
+		</div>
 	</div>
 </body>
-
 </html>

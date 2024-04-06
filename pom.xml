@@ -18,8 +18,8 @@
 		<java.version>21</java.version>
 	</properties>
 	<modules>
-		<module>notifications-management-portal-webapp</module>
 		<module>notifications-management-portal-database</module>
 		<module>notifications-management-portal-models</module>
+		<module>notifications-management-portal-webapp</module>	
 	</modules>
 </project>
